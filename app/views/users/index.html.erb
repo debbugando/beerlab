@@ -1,0 +1,21 @@
+<h5>Listagem de Usuários
+
+  <%= link_to 'Novo Usuário', new_user_path, class: 'btn right' %>
+</h5>
+<table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to(user_path(user)) { user.name } %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<%= paginate @users %>
